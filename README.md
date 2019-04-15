@@ -5,5 +5,6 @@
   
 ### Make Virtual Enviroment
 * $ virtualenv -p python3 nameEnv
-* $ source nameEnv/bin/activate
-* $ pip install "dask[complete]"
+* $ cd nameEnv
+* $ source bin/activate
+* (nameEnv) $ pip install -r requeriments.txt
