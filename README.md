@@ -1,2 +1,9 @@
 # learning-dask-python
-### Compare sequential and distributed algorithms in the dask library for python 3
+
+### Requeriments
+  * virtualenv: install with $ apt install virtualenv
+  
+### Make Virtual Enviroment
+* $ virtualenv -p python3 nameEnv
+* $ source nameEnv/bin/activate
+* $ pip install "dask[complete]"
