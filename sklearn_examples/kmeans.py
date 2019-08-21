@@ -1,7 +1,7 @@
 from dask.distributed import Client
 import time
-client = Client(processes=False, threads_per_worker=4, n_workers=1, memory_limit='2GB')
-#client = Client('localhost:8786)
+#client = Client(processes=False, threads_per_worker=4, n_workers=1, memory_limit='2GB')
+client = Client('localhost:8786')
 print(client)
 
 import dask
@@ -26,4 +26,4 @@ km = dask_ml.cluster.KMeans(n_clusters=3, init_max_iter=2, oversampling_factor=1
 
 t = time.time()
 km.fit(X)
-print(time.time()-t)
+print('Time kmeans distributed:' time.time()-t)
