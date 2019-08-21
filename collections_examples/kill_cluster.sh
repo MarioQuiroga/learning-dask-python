@@ -6,11 +6,12 @@ WORKERS=("10.1.0.1" "10.1.0.2" "10.1.0.3" "10.1.0.4" "10.1.0.5" "10.1.0.6" "10.1
 KILLSCHEDULER="pkill dask-scheduler"
 KILLWORKER="pkill dask-worker"
 
-$KILLSCHEDULER
+ssh $SCHEDULER_IP_PUB -p 2244 -l mquiroga "$KILLSCHEDULER" &
 
 for ((i=0;i<16; i++))
 do  
-    ssh ${WORKERS[$i]} "$KILLWORKER" &
+    W="ssh ${WORKERS[$i]} \"$KILLWORKER\""
+    ssh $SCHEDULER_IP_PUB -p 2244 -l mquiroga "$W" &
 done
-rm -R /storage/mquiroga/dask-env/dask-worker-space/*
+
 exit
